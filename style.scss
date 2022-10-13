@@ -1,0 +1,669 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+code,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+canvas,
+embed,
+footer,
+header,
+nav,
+section,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+}
+
+footer,
+header,
+nav,
+section,
+main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+/********模組化*******/
+
+@mixin bannerdesign {
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h1 {
+    color: white;
+    font-size: 5rem;
+    line-height: 8rem;
+    font-weight: bold;
+    margin-bottom: 5rem;
+    margin-left: 2rem;
+    span {
+      color: rgb(0, 204, 153);
+    }
+  }
+}
+
+@mixin rigster-btn {
+  .register-btn {
+    border-radius: 0.2em;
+    color: white;
+    background-color: rgb(0, 204, 153);
+    font-size: 2rem;
+    border: none;
+    padding: 1.5rem 0rem;
+    width: 25rem;
+    margin-left: 2rem;
+    cursor: pointer;
+  }
+  .register-btn:hover {
+    background-color: rgb(3, 136, 103);
+    scale: 1.05;
+    transition: 1s;
+  }
+}
+
+@mixin bannerfontsize {
+  @media screen and(max-width:767px) {
+    h1 {
+      font-size: 3rem;
+      line-height: 6rem;
+    }
+    .register-btn {
+      font-size: 1.5rem;
+      padding: 1.5rem 0rem;
+      width: 25rem;
+    }
+  }
+  @media screen and(max-width:450px) {
+    h1 {
+      font-size: 2rem;
+      line-height: 5rem;
+    }
+    .register-btn {
+      font-size: 1.2rem;
+      width: 20rem;
+    }
+  }
+}
+
+@mixin titleword {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  h2 {
+    color: rgb(0, 204, 153);
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-left: 1rem;
+  }
+  p {
+    color: rgb(165, 165, 165);
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0rem 1rem;
+  }
+}
+
+@mixin qacontent {
+  .question_item {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+    line-height: 1.5;
+  }
+  .answer_item {
+    line-height: 1.5;
+    font-size: 1.2rem;
+    margin-top: 0.8rem;
+    padding: 0 1rem;
+    color: rgb(117, 117, 117);
+    a {
+      color: rgb(0, 204, 153);
+      text-decoration: none;
+      &:hover {
+        color: rgb(0, 94, 70);
+      }
+    }
+  }
+}
+
+@mixin qacontent_li {
+  line-height: 1.5;
+  font-size: 1.2rem;
+  margin: 0 4rem;
+  color: rgb(117, 117, 117);
+}
+
+/*************首頁*************/
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 100%;
+}
+header {
+  .banner {
+    @include bannerdesign;
+    background-image: url(./images/HTML-CC_01.jpg);
+    @include rigster-btn;
+    @include bannerfontsize;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: rgba(77, 77, 77);
+    z-index: 5;
+    img {
+      width: 17rem;
+    }
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      li {
+        padding: 2rem 0rem;
+        a {
+          text-decoration: none;
+          color: white;
+          padding: 2rem 2rem;
+          font-size: 1.2rem;
+          position: relative;
+        }
+        a::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          height: 5px;
+          width: 0;
+          background-color: rgb(255, 255, 255);
+          transition: 0.3s;
+        }
+        a:hover::before {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+.selectcourse {
+  .title_selectcourse {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    .word_title_selectcourse {
+      @include titleword;
+    }
+    button {
+      border: none;
+      color: rgb(0, 204, 153);
+      background-color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 1rem 1.5rem;
+      margin: 1rem 2rem;
+      cursor: pointer;
+      position: relative;
+    }
+    button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border: 3px solid rgb(0, 204, 153);
+      transition: 0.2s;
+    }
+    button:hover::before {
+      top: -5px;
+      bottom: -5px;
+      left: -5px;
+      right: -5px;
+    }
+  }
+  .card_selectcourse {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-basis: 350px;
+      margin: 1rem;
+      box-shadow: rgba(50, 50, 93, 0.5) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      img {
+        margin-top: 0.5rem;
+      }
+      h2 {
+        color: rgb(93, 93, 93);
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-top: 2rem;
+      }
+      p {
+        color: rgb(110, 110, 110);
+        font-size: 1.3rem;
+        margin: 1rem 2rem;
+      }
+    }
+  }
+}
+
+.comparecourse {
+  .word_title_selectcourse {
+    @include titleword;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 4rem;
+  }
+
+  .course {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    position: relative;
+    margin-top: 2rem;
+
+    th,
+    td {
+      border-bottom: 1px solid rgb(201, 201, 201);
+      border-top: 1px solid rgb(201, 201, 201);
+      padding: 1rem 5rem;
+    }
+    th {
+      background-color: rgb(235, 235, 235);
+      border: none;
+    }
+
+    .better {
+      color: rgb(4, 177, 4);
+    }
+    @media screen and(max-width:767px) {
+      th,
+      td {
+        padding: 1rem 0.8rem;
+        font-size: 1rem;
+      }
+    }
+
+    tr:hover {
+      background-color: rgb(247, 247, 247);
+    }
+  }
+}
+.subscribe {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(235, 235, 235);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  padding: 6rem;
+  h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.8;
+  }
+  .sub_info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 1.5rem;
+    .inputinfo {
+      width: 20rem;
+      margin: 1.5rem 0rem;
+      padding: 1rem 1rem;
+      border: none;
+      &:focus {
+        color: rgb(138, 88, 88);
+        font-weight: bold;
+      }
+    }
+    .submitbtn {
+      width: 6rem;
+      padding: 0.8rem 0rem;
+      display: block;
+      border: none;
+      background-color: rgb(0, 204, 153);
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      &:hover {
+        background-color: rgb(30, 148, 118);
+      }
+    }
+  }
+}
+@media screen and(max-width:450px) {
+  .subscribe {
+    padding: 2rem;
+  }
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(50, 50, 40);
+  align-items: center;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+/******course*******/
+
+header {
+  .bannercourse {
+    @include bannerdesign;
+    background-image: url(./images/HTML-CC_02.jpg);
+    @include rigster-btn;
+    @include bannerfontsize;
+    h1 {
+      span {
+        font-size: 4rem;
+      }
+    }
+    @media screen and(max-width:767px) {
+      h1 {
+        span {
+          font-size: 2rem;
+        }
+      }
+    }
+    @media screen and(max-width:450px) {
+      h1 {
+        span {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+main {
+  .teacher {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    align-items: center;
+    flex-wrap: wrap;
+
+    img {
+      margin: 1rem 1rem;
+    }
+    p {
+      font-size: 2.5rem;
+      line-height: 1.5;
+      font-weight: bold;
+      margin: 1rem 1rem;
+      span {
+        color: rgb(0, 204, 153);
+      }
+    }
+    ul {
+      li {
+        list-style-type: disc;
+        color: rgb(155, 155, 155);
+        margin: 1rem;
+      }
+    }
+  }
+  .intro {
+    margin-top: 4rem;
+    max-width: 1000px;
+    margin: auto;
+    .intropoint {
+      .word_title {
+        @include titleword;
+      }
+    }
+    ol {
+      margin-left: 2rem;
+      margin-top: 2rem;
+
+      li {
+        list-style-type: decimal;
+        font-size: 1.2rem;
+        line-height: 1.4;
+        padding: 1rem;
+      }
+    }
+  }
+}
+.courseoutline {
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 2rem;
+
+  .word_title {
+    @include titleword;
+  }
+  .item {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    tr {
+      td {
+        width: 20%;
+        padding: 1rem 1rem;
+      }
+    }
+    tr:nth-child(odd) {
+      background-color: rgb(235, 235, 235);
+    }
+    tr:nth-child(even) {
+      color: rgb(155, 155, 155);
+    }
+  }
+}
+.register {
+  margin-top: 4rem;
+  padding: 10rem;
+  align-items: flex-end;
+  .footer-register-btn {
+    border-radius: 0.2em;
+    color: white;
+    background-color: rgb(0, 204, 153);
+    font-size: 1.5rem;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    margin: 0.8rem 2rem;
+  }
+  .footer-register-btn:hover {
+    background-color: rgb(3, 136, 103);
+    scale: 1.05;
+    transition: 1s;
+  }
+}
+@media screen and(max-width:450px) {
+  .register {
+    padding: 2rem;
+  }
+}
+
+/**************QA************/
+header {
+  .bannerfqa {
+    background-image: url(./images/HTML-CC_03.jpg);
+    @include bannerdesign;
+    @include bannerfontsize;
+    h1 {
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    .searchitem {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 1rem;
+
+      .banner_search {
+        width: 1000px;
+        padding: 2rem;
+        border: none;
+      }
+      .button_search {
+        padding: 2rem;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          background-color: rgb(77, 77, 77);
+          .fa-search {
+            color: rgb(255, 255, 255);
+          }
+        }
+      }
+    }
+  }
+}
+
+.question {
+  max-width: 1000px;
+  margin: 0 auto;
+  .word_title {
+    @include titleword;
+  }
+  .qa {
+    @include qacontent;
+  }
+  .pay {
+    @include qacontent;
+  }
+  .refund {
+    @include qacontent;
+  }
+  .installment {
+    li {
+      list-style-type: decimal;
+      @include qacontent_li;
+    }
+  }
+  .refund_reson {
+    list-style-type: disc;
+    @include qacontent_li;
+  }
+  .refund_notice {
+    list-style-type: disc;
+    @include qacontent_li;
+  }
+}
+
+.solution {
+  .feedback {
+    resize: none;
+    padding: 0.5rem;
+    width: 320px;
+    margin: 1rem 0rem;
+
+    &:focus {
+      color: rgb(95, 95, 95);
+      font-weight: bold;
+    }
+  }
+}
