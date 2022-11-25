@@ -110,22 +110,21 @@ input {
 /********模組化*******/
 
 @mixin bannerdesign {
-  height: 100vh;
-  width: 100%;
+  min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+
   h1 {
     color: white;
     font-size: 5rem;
     line-height: 8rem;
     font-weight: bold;
-    margin-bottom: 5rem;
-    margin-left: 2rem;
+    margin: 2rem;
     span {
       color: rgb(0, 204, 153);
     }
@@ -139,9 +138,9 @@ input {
     background-color: rgb(0, 204, 153);
     font-size: 2rem;
     border: none;
-    padding: 1.5rem 0rem;
-    width: 25rem;
-    margin-left: 2rem;
+    padding: 1.5rem;
+    max-width: 25rem;
+    margin: 2rem 2rem;
     cursor: pointer;
   }
   .register-btn:hover {
@@ -159,18 +158,18 @@ input {
     }
     .register-btn {
       font-size: 1.5rem;
-      padding: 1.5rem 0rem;
-      width: 25rem;
+      margin: 1.5rem;
     }
   }
   @media screen and(max-width:450px) {
     h1 {
+      padding-top: 5rem;
+      margin-bottom: 1rem;
       font-size: 2rem;
       line-height: 5rem;
     }
     .register-btn {
       font-size: 1.2rem;
-      width: 20rem;
     }
   }
 }
@@ -220,7 +219,7 @@ input {
 @mixin qacontent_li {
   line-height: 1.5;
   font-size: 1.2rem;
-  margin: 0 4rem;
+  margin: 0 2rem;
   color: rgb(117, 117, 117);
 }
 
@@ -230,15 +229,16 @@ input {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 100%;
 }
-header {
+.headercontanier {
   .banner {
     @include bannerdesign;
-    background-image: url(./images/HTML-CC_01.jpg);
+    background-image: url(../images/HTML-CC_01.jpg);
     @include rigster-btn;
     @include bannerfontsize;
+    margin-top: 2rem;
   }
 
-  nav {
+  .webnav {
     position: fixed;
     top: 0;
     left: 0;
@@ -256,30 +256,43 @@ header {
       flex-wrap: wrap;
       justify-content: space-around;
       align-items: center;
-      li {
-        padding: 2rem 0rem;
-        a {
-          text-decoration: none;
-          color: white;
-          padding: 2rem 2rem;
-          font-size: 1.2rem;
-          position: relative;
-        }
-        a::before {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          height: 5px;
-          width: 0;
-          background-color: rgb(255, 255, 255);
-          transition: 0.3s;
-        }
-        a:hover::before {
-          width: 100%;
-          left: 0;
-        }
+
+      a {
+        text-decoration: none;
+        color: white;
+        padding: 2rem 2rem;
+        font-size: 1.2rem;
+        position: relative;
+        display: inline-block;
       }
+      a::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 5px;
+        width: 0;
+        background-color: rgb(255, 255, 255);
+        transition: 0.3s;
+      }
+      a:hover::before {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .webnav ul {
+    justify-content: space-around;
+    flex: 1 1 400px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .headercontanier .webnav ul {
+    a {
+      padding: 1.5rem;
     }
   }
 }
@@ -361,19 +374,14 @@ header {
     margin: 0 auto;
     margin-top: 4rem;
   }
-
-  .course {
-    border-collapse: collapse;
-    border-spacing: 0;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    margin: auto;
+  .text {
+    display: block;
     overflow-x: auto;
     white-space: nowrap;
-    position: relative;
-    margin-top: 2rem;
-
+    margin: 4rem 1rem;
+    .course {
+      font-size: 1.2rem;
+      margin: 0 auto;
     th,
     td {
       border-bottom: 1px solid rgb(201, 201, 201);
@@ -388,16 +396,21 @@ header {
     .better {
       color: rgb(4, 177, 4);
     }
-    @media screen and(max-width:767px) {
+    @media screen and(max-width:421px) {
       th,
       td {
         padding: 1rem 0.8rem;
         font-size: 1rem;
       }
     }
-
     tr:hover {
       background-color: rgb(247, 247, 247);
+    }
+  }}
+
+  @media screen and(max-width:900px) {
+    .course {
+      justify-content: flex-start;
     }
   }
 }
@@ -418,9 +431,11 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    margin: 1.5rem;
+    width: 100%;
+    max-width: 500px;
     .inputinfo {
-      width: 20rem;
+      width: 100%;
+      max-width: 30rem;
       margin: 1.5rem 0rem;
       padding: 1rem 1rem;
       border: none;
@@ -430,7 +445,8 @@ header {
       }
     }
     .submitbtn {
-      width: 6rem;
+      width: 100%;
+      max-width: 10rem;
       padding: 0.8rem 0rem;
       display: block;
       border: none;
@@ -449,7 +465,7 @@ header {
     padding: 2rem;
   }
 }
-footer {
+.footercontanier {
   display: flex;
   justify-content: space-between;
   background-color: rgb(50, 50, 40);
@@ -459,12 +475,13 @@ footer {
 }
 /******course*******/
 
-header {
+.headercontanier {
   .bannercourse {
     @include bannerdesign;
-    background-image: url(./images/HTML-CC_02.jpg);
+    background-image: url(../images/HTML-CC_02.jpg);
     @include rigster-btn;
     @include bannerfontsize;
+    margin-top: 2rem;
     h1 {
       span {
         font-size: 4rem;
@@ -487,7 +504,7 @@ header {
   }
 }
 
-main {
+.maincontanier {
   .teacher {
     display: flex;
     justify-content: center;
@@ -519,10 +536,8 @@ main {
     margin-top: 4rem;
     max-width: 1000px;
     margin: auto;
-    .intropoint {
-      .word_title {
-        @include titleword;
-      }
+    .word_title {
+      @include titleword;
     }
     ol {
       margin-left: 2rem;
@@ -582,6 +597,11 @@ main {
     transition: 1s;
   }
 }
+@media screen and(max-width:767px) {
+  .register {
+    padding: 3rem;
+  }
+}
 @media screen and(max-width:450px) {
   .register {
     padding: 2rem;
@@ -589,14 +609,18 @@ main {
 }
 
 /**************QA************/
-header {
+.headercontanier {
   .bannerfqa {
-    background-image: url(./images/HTML-CC_03.jpg);
     @include bannerdesign;
     @include bannerfontsize;
+    background-image: url(../images/HTML-CC_03.jpg);
+    margin-top: 2rem;
     h1 {
-      margin: 0 auto;
-      padding: 1rem;
+     margin: 3rem auto;
+     padding-left: 1rem;
+     padding-right: 1rem;
+  
+    }
     }
     .searchitem {
       display: flex;
@@ -605,12 +629,15 @@ header {
       margin: 0 1rem;
 
       .banner_search {
-        width: 1000px;
+        width: 100%;
+        max-width: 1000px;
         padding: 2rem;
         border: none;
+        margin-bottom: 2rem;
       }
       .button_search {
         padding: 2rem;
+        margin-bottom: 2rem;
         border: none;
         cursor: pointer;
         &:hover {
@@ -622,7 +649,7 @@ header {
       }
     }
   }
-}
+
 
 .question {
   max-width: 1000px;
@@ -640,10 +667,10 @@ header {
     @include qacontent;
   }
   .installment {
-    li {
-      list-style-type: decimal;
-      @include qacontent_li;
-    }
+      li{
+        @include qacontent_li;
+        list-style-type: decimal;
+      }
   }
   .refund_reson {
     list-style-type: disc;
@@ -659,7 +686,8 @@ header {
   .feedback {
     resize: none;
     padding: 0.5rem;
-    width: 320px;
+    width: 100%;
+    max-width: 480px;
     margin: 1rem 0rem;
 
     &:focus {

@@ -117,67 +117,66 @@ input {
   font-size: 100%;
 }
 
-header .banner {
-  height: 100vh;
-  width: 100%;
+.headercontanier .banner {
+  min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url(./images/HTML-CC_01.jpg);
+  position: relative;
+  background-image: url(../images/HTML-CC_01.jpg);
+  margin-top: 2rem;
 }
-header .banner h1 {
+.headercontanier .banner h1 {
   color: white;
   font-size: 5rem;
   line-height: 8rem;
   font-weight: bold;
-  margin-bottom: 5rem;
-  margin-left: 2rem;
+  margin: 2rem;
 }
-header .banner h1 span {
+.headercontanier .banner h1 span {
   color: rgb(0, 204, 153);
 }
-header .banner .register-btn {
+.headercontanier .banner .register-btn {
   border-radius: 0.2em;
   color: white;
   background-color: rgb(0, 204, 153);
   font-size: 2rem;
   border: none;
-  padding: 1.5rem 0rem;
-  width: 25rem;
-  margin-left: 2rem;
+  padding: 1.5rem;
+  max-width: 25rem;
+  margin: 2rem 2rem;
   cursor: pointer;
 }
-header .banner .register-btn:hover {
+.headercontanier .banner .register-btn:hover {
   background-color: rgb(3, 136, 103);
   scale: 1.05;
   transition: 1s;
 }
 @media screen and (max-width: 767px) {
-  header .banner h1 {
+  .headercontanier .banner h1 {
     font-size: 3rem;
     line-height: 6rem;
   }
-  header .banner .register-btn {
+  .headercontanier .banner .register-btn {
     font-size: 1.5rem;
-    padding: 1.5rem 0rem;
-    width: 25rem;
+    margin: 1.5rem;
   }
 }
 @media screen and (max-width: 450px) {
-  header .banner h1 {
+  .headercontanier .banner h1 {
+    padding-top: 5rem;
+    margin-bottom: 1rem;
     font-size: 2rem;
     line-height: 5rem;
   }
-  header .banner .register-btn {
+  .headercontanier .banner .register-btn {
     font-size: 1.2rem;
-    width: 20rem;
   }
 }
-header nav {
+.headercontanier .webnav {
   position: fixed;
   top: 0;
   left: 0;
@@ -188,26 +187,24 @@ header nav {
   background-color: rgb(77, 77, 77);
   z-index: 5;
 }
-header nav img {
+.headercontanier .webnav img {
   width: 17rem;
 }
-header nav ul {
+.headercontanier .webnav ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
 }
-header nav ul li {
-  padding: 2rem 0rem;
-}
-header nav ul li a {
+.headercontanier .webnav ul a {
   text-decoration: none;
   color: white;
   padding: 2rem 2rem;
   font-size: 1.2rem;
   position: relative;
+  display: inline-block;
 }
-header nav ul li a::before {
+.headercontanier .webnav ul a::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -217,11 +214,22 @@ header nav ul li a::before {
   background-color: rgb(255, 255, 255);
   transition: 0.3s;
 }
-header nav ul li a:hover::before {
+.headercontanier .webnav ul a:hover::before {
   width: 100%;
   left: 0;
 }
 
+@media screen and (max-width: 600px) {
+  .webnav ul {
+    justify-content: space-around;
+    flex: 1 1 400px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .headercontanier .webnav ul a {
+    padding: 1.5rem;
+  }
+}
 .selectcourse .title_selectcourse {
   display: flex;
   flex-wrap: wrap;
@@ -325,40 +333,43 @@ header nav ul li a:hover::before {
   font-weight: bold;
   margin: 0rem 1rem;
 }
-.comparecourse .course {
-  border-collapse: collapse;
-  border-spacing: 0;
-  font-size: 1.2rem;
-  display: flex;
-  justify-content: center;
-  margin: auto;
+.comparecourse .text {
+  display: block;
   overflow-x: auto;
   white-space: nowrap;
-  position: relative;
-  margin-top: 2rem;
+  margin: 4rem 1rem;
 }
-.comparecourse .course th,
-.comparecourse .course td {
+.comparecourse .text .course {
+  font-size: 1.2rem;
+  margin: 0 auto;
+}
+.comparecourse .text .course th,
+.comparecourse .text .course td {
   border-bottom: 1px solid rgb(201, 201, 201);
   border-top: 1px solid rgb(201, 201, 201);
   padding: 1rem 5rem;
 }
-.comparecourse .course th {
+.comparecourse .text .course th {
   background-color: rgb(235, 235, 235);
   border: none;
 }
-.comparecourse .course .better {
+.comparecourse .text .course .better {
   color: rgb(4, 177, 4);
 }
-@media screen and (max-width: 767px) {
-  .comparecourse .course th,
-.comparecourse .course td {
+@media screen and (max-width: 421px) {
+  .comparecourse .text .course th,
+.comparecourse .text .course td {
     padding: 1rem 0.8rem;
     font-size: 1rem;
   }
 }
-.comparecourse .course tr:hover {
+.comparecourse .text .course tr:hover {
   background-color: rgb(247, 247, 247);
+}
+@media screen and (max-width: 900px) {
+  .comparecourse .course {
+    justify-content: flex-start;
+  }
 }
 
 .subscribe {
@@ -379,10 +390,12 @@ header nav ul li a:hover::before {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin: 1.5rem;
+  width: 100%;
+  max-width: 500px;
 }
 .subscribe .sub_info .inputinfo {
-  width: 20rem;
+  width: 100%;
+  max-width: 30rem;
   margin: 1.5rem 0rem;
   padding: 1rem 1rem;
   border: none;
@@ -392,7 +405,8 @@ header nav ul li a:hover::before {
   font-weight: bold;
 }
 .subscribe .sub_info .submitbtn {
-  width: 6rem;
+  width: 100%;
+  max-width: 10rem;
   padding: 0.8rem 0rem;
   display: block;
   border: none;
@@ -410,7 +424,7 @@ header nav ul li a:hover::before {
     padding: 2rem;
   }
 }
-footer {
+.footercontanier {
   display: flex;
   justify-content: space-between;
   background-color: rgb(50, 50, 40);
@@ -420,132 +434,131 @@ footer {
 }
 
 /******course*******/
-header .bannercourse {
-  height: 100vh;
-  width: 100%;
+.headercontanier .bannercourse {
+  min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url(./images/HTML-CC_02.jpg);
+  position: relative;
+  background-image: url(../images/HTML-CC_02.jpg);
+  margin-top: 2rem;
 }
-header .bannercourse h1 {
+.headercontanier .bannercourse h1 {
   color: white;
   font-size: 5rem;
   line-height: 8rem;
   font-weight: bold;
-  margin-bottom: 5rem;
-  margin-left: 2rem;
+  margin: 2rem;
 }
-header .bannercourse h1 span {
+.headercontanier .bannercourse h1 span {
   color: rgb(0, 204, 153);
 }
-header .bannercourse .register-btn {
+.headercontanier .bannercourse .register-btn {
   border-radius: 0.2em;
   color: white;
   background-color: rgb(0, 204, 153);
   font-size: 2rem;
   border: none;
-  padding: 1.5rem 0rem;
-  width: 25rem;
-  margin-left: 2rem;
+  padding: 1.5rem;
+  max-width: 25rem;
+  margin: 2rem 2rem;
   cursor: pointer;
 }
-header .bannercourse .register-btn:hover {
+.headercontanier .bannercourse .register-btn:hover {
   background-color: rgb(3, 136, 103);
   scale: 1.05;
   transition: 1s;
 }
 @media screen and (max-width: 767px) {
-  header .bannercourse h1 {
+  .headercontanier .bannercourse h1 {
     font-size: 3rem;
     line-height: 6rem;
   }
-  header .bannercourse .register-btn {
+  .headercontanier .bannercourse .register-btn {
     font-size: 1.5rem;
-    padding: 1.5rem 0rem;
-    width: 25rem;
+    margin: 1.5rem;
   }
 }
 @media screen and (max-width: 450px) {
-  header .bannercourse h1 {
+  .headercontanier .bannercourse h1 {
+    padding-top: 5rem;
+    margin-bottom: 1rem;
     font-size: 2rem;
     line-height: 5rem;
   }
-  header .bannercourse .register-btn {
+  .headercontanier .bannercourse .register-btn {
     font-size: 1.2rem;
-    width: 20rem;
   }
 }
-header .bannercourse h1 span {
+.headercontanier .bannercourse h1 span {
   font-size: 4rem;
 }
 @media screen and (max-width: 767px) {
-  header .bannercourse h1 span {
+  .headercontanier .bannercourse h1 span {
     font-size: 2rem;
   }
 }
 @media screen and (max-width: 450px) {
-  header .bannercourse h1 span {
+  .headercontanier .bannercourse h1 span {
     font-size: 1.5rem;
   }
 }
 
-main .teacher {
+.maincontanier .teacher {
   display: flex;
   justify-content: center;
   margin-top: 4rem;
   align-items: center;
   flex-wrap: wrap;
 }
-main .teacher img {
+.maincontanier .teacher img {
   margin: 1rem 1rem;
 }
-main .teacher p {
+.maincontanier .teacher p {
   font-size: 2.5rem;
   line-height: 1.5;
   font-weight: bold;
   margin: 1rem 1rem;
 }
-main .teacher p span {
+.maincontanier .teacher p span {
   color: rgb(0, 204, 153);
 }
-main .teacher ul li {
+.maincontanier .teacher ul li {
   list-style-type: disc;
   color: rgb(155, 155, 155);
   margin: 1rem;
 }
-main .intro {
+.maincontanier .intro {
   margin-top: 4rem;
   max-width: 1000px;
   margin: auto;
 }
-main .intro .intropoint .word_title {
+.maincontanier .intro .word_title {
   display: flex;
   align-items: flex-end;
   flex-wrap: wrap;
   margin-top: 4rem;
 }
-main .intro .intropoint .word_title h2 {
+.maincontanier .intro .word_title h2 {
   color: rgb(0, 204, 153);
   font-size: 2.5rem;
   font-weight: bold;
   margin-left: 1rem;
 }
-main .intro .intropoint .word_title p {
+.maincontanier .intro .word_title p {
   color: rgb(165, 165, 165);
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0rem 1rem;
 }
-main .intro ol {
+.maincontanier .intro ol {
   margin-left: 2rem;
   margin-top: 2rem;
 }
-main .intro ol li {
+.maincontanier .intro ol li {
   list-style-type: decimal;
   font-size: 1.2rem;
   line-height: 1.4;
@@ -611,80 +624,88 @@ main .intro ol li {
   transition: 1s;
 }
 
+@media screen and (max-width: 767px) {
+  .register {
+    padding: 3rem;
+  }
+}
 @media screen and (max-width: 450px) {
   .register {
     padding: 2rem;
   }
 }
 /**************QA************/
-header .bannerfqa {
-  background-image: url(./images/HTML-CC_03.jpg);
-  height: 100vh;
-  width: 100%;
+.headercontanier .bannerfqa {
+  min-height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  background-image: url(../images/HTML-CC_03.jpg);
+  margin-top: 2rem;
 }
-header .bannerfqa h1 {
+.headercontanier .bannerfqa h1 {
   color: white;
   font-size: 5rem;
   line-height: 8rem;
   font-weight: bold;
-  margin-bottom: 5rem;
-  margin-left: 2rem;
+  margin: 2rem;
 }
-header .bannerfqa h1 span {
+.headercontanier .bannerfqa h1 span {
   color: rgb(0, 204, 153);
 }
 @media screen and (max-width: 767px) {
-  header .bannerfqa h1 {
+  .headercontanier .bannerfqa h1 {
     font-size: 3rem;
     line-height: 6rem;
   }
-  header .bannerfqa .register-btn {
+  .headercontanier .bannerfqa .register-btn {
     font-size: 1.5rem;
-    padding: 1.5rem 0rem;
-    width: 25rem;
+    margin: 1.5rem;
   }
 }
 @media screen and (max-width: 450px) {
-  header .bannerfqa h1 {
+  .headercontanier .bannerfqa h1 {
+    padding-top: 5rem;
+    margin-bottom: 1rem;
     font-size: 2rem;
     line-height: 5rem;
   }
-  header .bannerfqa .register-btn {
+  .headercontanier .bannerfqa .register-btn {
     font-size: 1.2rem;
-    width: 20rem;
   }
 }
-header .bannerfqa h1 {
-  margin: 0 auto;
-  padding: 1rem;
+.headercontanier .bannerfqa h1 {
+  margin: 3rem auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
-header .bannerfqa .searchitem {
+.headercontanier .searchitem {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 1rem;
 }
-header .bannerfqa .searchitem .banner_search {
-  width: 1000px;
+.headercontanier .searchitem .banner_search {
+  width: 100%;
+  max-width: 1000px;
   padding: 2rem;
   border: none;
+  margin-bottom: 2rem;
 }
-header .bannerfqa .searchitem .button_search {
+.headercontanier .searchitem .button_search {
   padding: 2rem;
+  margin-bottom: 2rem;
   border: none;
   cursor: pointer;
 }
-header .bannerfqa .searchitem .button_search:hover {
+.headercontanier .searchitem .button_search:hover {
   background-color: rgb(77, 77, 77);
 }
-header .bannerfqa .searchitem .button_search:hover .fa-search {
+.headercontanier .searchitem .button_search:hover .fa-search {
   color: rgb(255, 255, 255);
 }
 
@@ -771,31 +792,32 @@ header .bannerfqa .searchitem .button_search:hover .fa-search {
   color: rgb(0, 94, 70);
 }
 .question .installment li {
-  list-style-type: decimal;
   line-height: 1.5;
   font-size: 1.2rem;
-  margin: 0 4rem;
+  margin: 0 2rem;
   color: rgb(117, 117, 117);
+  list-style-type: decimal;
 }
 .question .refund_reson {
   list-style-type: disc;
   line-height: 1.5;
   font-size: 1.2rem;
-  margin: 0 4rem;
+  margin: 0 2rem;
   color: rgb(117, 117, 117);
 }
 .question .refund_notice {
   list-style-type: disc;
   line-height: 1.5;
   font-size: 1.2rem;
-  margin: 0 4rem;
+  margin: 0 2rem;
   color: rgb(117, 117, 117);
 }
 
 .solution .feedback {
   resize: none;
   padding: 0.5rem;
-  width: 320px;
+  width: 100%;
+  max-width: 480px;
   margin: 1rem 0rem;
 }
 .solution .feedback:focus {
