@@ -126,7 +126,7 @@ input {
   flex-direction: column;
   justify-content: center;
   position: relative;
-  background-image: url(./images/HTML-CC_01.jpg);
+  background-image: url(../images/HTML-CC_01.jpg);
   margin-top: 2rem;
 }
 .headercontanier .banner h1 {
@@ -443,7 +443,7 @@ input {
   flex-direction: column;
   justify-content: center;
   position: relative;
-  background-image: url(./images/HTML-CC_02.jpg);
+  background-image: url(../images/HTML-CC_02.jpg);
   margin-top: 2rem;
 }
 .headercontanier .bannercourse h1 {
@@ -644,7 +644,7 @@ input {
   flex-direction: column;
   justify-content: center;
   position: relative;
-  background-image: url(./images/HTML-CC_03.jpg);
+  background-image: url(../images/HTML-CC_03.jpg);
   margin-top: 2rem;
 }
 .headercontanier .bannerfqa h1 {
