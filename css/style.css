@@ -433,6 +433,12 @@ input {
   flex-wrap: wrap;
 }
 
+@media screen and (max-width: 600px) {
+  .footercontanier {
+    justify-content: space-around;
+    flex: 1 1 400px;
+  }
+}
 /******course*******/
 .headercontanier .bannercourse {
   min-height: 100vh;
