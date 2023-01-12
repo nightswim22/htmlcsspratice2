@@ -142,11 +142,12 @@ input {
     max-width: 25rem;
     margin: 2rem 2rem;
     cursor: pointer;
+    transition: 1s;
   }
   .register-btn:hover {
     background-color: rgb(3, 136, 103);
     scale: 1.05;
-    transition: 1s;
+    
   }
 }
 
@@ -248,14 +249,15 @@ input {
     justify-content: space-between;
     background-color: rgba(77, 77, 77);
     z-index: 5;
+    align-items: center; 
     img {
       width: 17rem;
     }
     ul {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
       align-items: center;
+      justify-content: space-around;
 
       a {
         text-decoration: none;
@@ -285,7 +287,6 @@ input {
 
 @media screen and (max-width: 600px) {
   .webnav ul {
-    justify-content: space-around;
     flex: 1 1 400px;
   }
 }
@@ -472,6 +473,10 @@ input {
   align-items: center;
   padding: 1rem;
   flex-wrap: wrap;
+}
+.socialmedia{
+  display: flex;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 600px) {
